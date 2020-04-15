@@ -6,11 +6,17 @@ import java.util.Scanner;
 public class Player {
     //Each player is a specific type represented by a character (i.e. X or O)
     char playerType;
+    boolean isCurrent = false;
 
     //Creates a Player with the parameter of type; i.e. using X or O. This will create Player-X and
     //Player-O to be used for deciding whose turn it is and what character to place
     public Player(char type) {
         this.playerType = type;
+        isCurrent = playerType == 'X';
+    }
+
+    public Boolean getCurrent() {
+        return this.isCurrent;
     }
 
     //The board asks for input, then the human gives input to player

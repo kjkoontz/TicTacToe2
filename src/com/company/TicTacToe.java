@@ -10,9 +10,6 @@ public class TicTacToe {
     public Player playerX = new Player('X');
     public Player playerO = new Player('O');
 
-//    static public Player currentPlayer = playerX;
-    public static boolean cPlayer = true; //true when currentPlayer is playerX
-
     //TicTacToe has a game state, either playing or not
     static boolean isGamePlaying = true;
 
@@ -65,7 +62,7 @@ public class TicTacToe {
     public void gameLoop(){
         playingBoard.askPlayer();
 //        Player.parseInput(Player.giveInput());
-        if (cPlayer) {
+        if (playerX.isCurrent) {
             playerX.parseInput(playerX.giveInput());
         } else {
             playerO.parseInput(playerO.giveInput());
