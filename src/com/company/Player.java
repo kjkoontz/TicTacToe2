@@ -2,15 +2,19 @@ package com.company;
 
 import java.util.Scanner;
 
-import static com.company.TicTacToe.playerO;
-import static com.company.TicTacToe.playerX;
 
 public class Player {
     //Each player is a specific type represented by a character (i.e. X or O)
-    static char playerType;
+    char playerType;
+
+    //Creates a Player with the parameter of type; i.e. using X or O. This will create Player-X and
+    //Player-O to be used for deciding whose turn it is and what character to place
+    public Player(char type) {
+        this.playerType = type;
+    }
 
     //The board asks for input, then the human gives input to player
-    static String giveInput(){
+    String giveInput(){
         Scanner playerInput = new Scanner(System.in);
         String input = playerInput.nextLine();
         return input;
@@ -18,7 +22,7 @@ public class Player {
 
     //The player decides what kind of input was given. This decides if the input was for a move, continuing playing, for
     //quiting, or if it was invalid
-    static void parseInput(String input) {
+    void parseInput(String input) {
         String[] inputArray = input.split(" ");
         if(inputArray.length == 2){
             String rowInput = inputArray[0];
@@ -83,7 +87,7 @@ public class Player {
 
     //The player places their mark on the board, changing the playingBoard. This checks that the move was valid and
     //makes that move.
-    static void placeMark(int row, int column){
+    void placeMark(int row, int column){
         if(TicTacToe.playingBoard.gameBoard[row][column] == ' '){
             TicTacToe.playingBoard.gameBoard[row][column] = playerType;
         }
@@ -94,7 +98,7 @@ public class Player {
     }
 
     //After the player makes their move, they need to take turns. This changes whose turn it is.
-    static void changePlayer(){
+    void changePlayer(){
         if(TicTacToe.cPlayer){
             TicTacToe.currentPlayer = playerO;
             TicTacToe.cPlayer = false;
@@ -105,10 +109,6 @@ public class Player {
         }
     }
 
-    //Creates a constructor for Player with the parameter of type; i.e. using X or O. This will create Player-X and
-    //Player-O to be used for deciding whose turn it is and what character to place
-    public Player(char type) {
-        playerType = type;
-    }
+
 }
 

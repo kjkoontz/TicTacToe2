@@ -4,15 +4,14 @@ import java.util.Scanner;
 
 public class TicTacToe {
     //TicTacToe has an instance of Board, the playingBoard
-    static Board playingBoard = new Board();
+    private Board playingBoard = new Board();
 
     //TicTacToe has two instances of Player, playerX and playerO
-    static Player playerX = new Player('X');
-    static Player playerO = new Player('O');
+    public Player playerX = new Player('X');
+    public Player playerO = new Player('O');
 
-    static Player currentPlayer = playerX;
-    //true when currentPlayer is playerX
-    static boolean cPlayer = true;
+//    static public Player currentPlayer = playerX;
+    public static boolean cPlayer = true; //true when currentPlayer is playerX
 
     //TicTacToe has a game state, either playing or not
     static boolean isGamePlaying = true;
@@ -63,16 +62,22 @@ public class TicTacToe {
         }
     }
 
-    static void gameLoop(){
-        Board.askPlayer();
-        Player.parseInput(Player.giveInput());
+    public void gameLoop(){
+        playingBoard.askPlayer();
+//        Player.parseInput(Player.giveInput());
+        if (cPlayer) {
+            playerX.parseInput(playerX.giveInput());
+        } else {
+            playerO.parseInput(playerO.giveInput());
+        }
+
         do{
-            Board.checkWin();
+            playingBoard.checkWin();
         }
         while(isGamePlaying);
     }
 
     public static void main(String[] args) {
-        TicTacToe game = new TicTacToe;
+        TicTacToe game = new TicTacToe();
     }
 }
