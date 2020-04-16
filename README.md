@@ -33,3 +33,6 @@ This is my first ever programming project.
   
 Right now, there is one small bug with input, but otherwise it works. 
 Counting the time spent learning the principles, as well as actually coding, this project took about 18 - 20 hours total.
+
+Here are some screenshots of the code:
+![ScreenShots](https://github.com/kjkoontz/TicTacToe2/tree/master/Screenshots)
